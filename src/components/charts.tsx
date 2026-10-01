@@ -113,6 +113,7 @@ export function GroupedColumns({
                 onFocus={() => setHover(i)}
                 onBlur={() => setHover(null)}
                 tabIndex={0}
+                role="img"
                 aria-label={`${d.label}: ${series.map((s, si) => `${s.name} ${d.values[si]}`).join(", ")}`}
               >
                 {hover === i && <div aria-hidden className="absolute inset-y-0 inset-x-0.5 rounded bg-ink/[0.04]" />}

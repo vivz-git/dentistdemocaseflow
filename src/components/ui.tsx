@@ -355,15 +355,14 @@ export function Segmented<T extends string>({
   label: string;
 }) {
   return (
-    <div role="tablist" aria-label={label} className="scroll-thin -mx-1 flex max-w-full gap-1 overflow-x-auto px-1 pb-1">
+    <div role="group" aria-label={label} className="scroll-thin -mx-1 flex max-w-full gap-1 overflow-x-auto px-1 pb-1">
       {options.map((o) => {
         const active = o.value === value;
         return (
           <button
             key={o.value}
             type="button"
-            role="tab"
-            aria-selected={active}
+            aria-pressed={active}
             onClick={() => onChange(o.value)}
             className={clsx(
               "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg px-2.5 text-[13px] font-medium whitespace-nowrap transition-colors duration-150",
