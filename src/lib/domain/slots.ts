@@ -7,6 +7,8 @@ export interface FindSlotsInput {
   now: Date;
   count?: number;
   perDayLimit?: number;
+  /** Space offered times ~2 hours apart (patient offers). Staff pickers show every time. */
+  spread?: boolean;
   patientId?: string;
   excludeAppointmentId?: string;
 }
@@ -94,7 +96,7 @@ export function findSlots(state: DemoState, input: FindSlotsInput): SlotOption[]
       result.push(slot);
       taken++;
       // Spread offers across the day rather than offering back-to-back times.
-      m += 120 - settings.booking.slotIntervalMin;
+      if (input.spread !== false) m += 120 - settings.booking.slotIntervalMin;
     }
   }
   return result;

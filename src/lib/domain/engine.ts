@@ -912,7 +912,8 @@ export function bookAppointment(s: DemoState, caseId: string, slot: SlotOption, 
         : "follow_up";
   c.sequence.nextStepAt = undefined;
   setAutomation(s, c, "stopped", "Appointment booked", now, "system");
-  c.unread = by === "patient" ? c.unread : false;
+  // A self-service booking needs no staff reply.
+  c.unread = false;
   addEvent(
     s,
     c,

@@ -1,3 +1,8 @@
+import type { Metadata } from "next";
+import { Dashboard } from "@/features/dashboard";
+
+export const metadata: Metadata = { title: "Dashboard" };
+
 export default function DashboardPage() {
-  return <p className="text-sm text-muted">Dashboard is being built.</p>;
+  return <Dashboard />;
 }
