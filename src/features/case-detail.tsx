@@ -92,7 +92,7 @@ export function CaseDetail({ id }: { id: string }) {
 
       <NextStepBar s={s} c={c} now={now} open={setDialog} />
 
-      <div className="mt-4 grid gap-4 lg:mt-5 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-5">
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-5 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-5">
         <div className="flex min-w-0 flex-col gap-4 xl:gap-5">
           <Card className="overflow-hidden">
             <ConversationPanel s={s} c={c} />

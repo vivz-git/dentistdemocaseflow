@@ -42,7 +42,7 @@ export function Analytics() {
         </dl>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-2 lg:gap-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
         <Card>
           <CardHeader title="Conversion funnel" description="Cohort: every plan in CaseFlow. Each stage includes only cases that reached the previous one." />
           <div className="px-4 pb-5 sm:px-5">

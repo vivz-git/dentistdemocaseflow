@@ -246,7 +246,7 @@ export function PlanDetail({ id }: { id: string }) {
           </ButtonLink>
         }
       />
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-5">
         <div className="flex flex-col gap-4 lg:gap-5">
           <Card
             className={clsx("flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:p-5", booked ? "border-brand/30 bg-brand-soft/50" : "border-warn/30 bg-warn-soft/50")}
@@ -432,7 +432,7 @@ export function NewPlanForm() {
         title="New treatment plan"
         description="Add a plan the patient did not schedule. Use synthetic details only — this is a demo."
       />
-      <form onSubmit={submit} noValidate className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-5">
+      <form onSubmit={submit} noValidate className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-5">
         <Card>
           <CardHeader title="Patient" />
           <div className="grid gap-4 px-4 pb-5 sm:grid-cols-2 sm:px-5">

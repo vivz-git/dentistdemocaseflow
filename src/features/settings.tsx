@@ -147,7 +147,7 @@ export function Settings() {
           </>
         }
       />
-      <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-6">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-6">
         <nav aria-label="Settings sections" className="scroll-thin -mx-1 flex gap-1 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0">
           {TABS.map((t) => {
             const hasError = Object.keys(errors).some((k) => sectionOf(k) === t.id);
@@ -585,7 +585,11 @@ function sectionOf(key: string): Tab {
 }
 
 function TimeInput({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
-  return <Input type="time" aria-label={label} value={value} onChange={(e) => onChange(e.target.value)} className="w-[118px]" />;
+  return (
+    <span className="inline-block w-[128px]">
+      <Input type="time" aria-label={label} value={value} onChange={(e) => onChange(e.target.value)} />
+    </span>
+  );
 }
 
 function NumField({ id, label, value, error, onChange, hint }: { id: string; label: ReactNode; value: number; error?: string; onChange: (v: string) => void; hint?: string }) {

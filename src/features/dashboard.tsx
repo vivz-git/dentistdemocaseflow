@@ -59,12 +59,12 @@ export function Dashboard() {
         }
       />
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-5">
         <WaitingCard s={s} now={now} m={m} eligible={eligible} />
         <RecoveredCard s={s} now={now} m={m} roi={roi} />
       </div>
 
-      <div className="mt-4 grid gap-4 lg:mt-5 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-5">
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-5 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-5">
         <Card>
           <CardHeader
             title="Treatment plan conversion"
@@ -94,7 +94,7 @@ export function Dashboard() {
         <StatusCard s={s} m={m} />
       </div>
 
-      <div className="mt-4 grid gap-4 lg:mt-5 lg:grid-cols-2 lg:gap-5">
+      <div className="mt-4 grid grid-cols-1 gap-4 lg:mt-5 lg:grid-cols-2 lg:gap-5">
         <UpcomingCard s={s} now={now} />
         <ActivityCard s={s} now={now} />
       </div>

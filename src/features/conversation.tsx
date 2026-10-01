@@ -58,7 +58,8 @@ function threadItems(s: DemoState, c: Case): Item[] {
       .filter((e) => e.caseId === c.id && INLINE_EVENTS.has(e.type))
       .map((e) => ({ kind: "event" as const, at: e.at, e })),
   ];
-  return items.sort((a, b) => (a.at < b.at ? -1 : a.at > b.at ? 1 : a.kind === "message" ? -1 : 1));
+  // Stable sort: same-timestamp items keep insertion order, messages before system lines.
+  return items.sort((a, b) => (a.at < b.at ? -1 : a.at > b.at ? 1 : a.kind === b.kind ? 0 : a.kind === "message" ? -1 : 1));
 }
 
 function eventText(s: DemoState, e: CaseEvent) {

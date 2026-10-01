@@ -240,7 +240,7 @@ export function CampaignBuilder() {
             : "Start follow-up for pending plans in one step, with a message approved for this group."
         }
       />
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-5">
         <div className="flex min-w-0 flex-col gap-4 lg:gap-5">
           <Card>
             <CardHeader
@@ -516,7 +516,7 @@ export function CampaignDetail({ id }: { id: string }) {
         </div>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-5">
         <Card className="min-w-0">
           <div className="border-b border-line px-4 py-3 sm:px-5">
             <Segmented
