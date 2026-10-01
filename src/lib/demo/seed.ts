@@ -31,7 +31,7 @@ import { findSlots } from "@/lib/domain/slots";
 import { MINUTE, localDayAt, minutesOfDay, zonedParts, zonedTimeToUtc } from "@/lib/domain/time";
 import type { DemoState } from "@/lib/domain/types";
 
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 
 type Scenario =
   | "pending"

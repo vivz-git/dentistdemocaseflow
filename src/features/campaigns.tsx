@@ -8,6 +8,7 @@ import { CheckCircle, MegaphoneSimple, Pause, Play, RocketLaunch, Sparkle, Stop,
 import { CHANNEL_LABEL } from "@/lib/domain/countries";
 import { PRACTICE_MANAGER, TEMPLATE_VARIABLES } from "@/lib/domain/defaults";
 import {
+  ACTION_LABEL,
   approveCampaign,
   campaignStats,
   caseContext,
@@ -432,7 +433,7 @@ function MessagePreview({ body }: { body: string }) {
       <div className="ml-auto max-w-[92%] rounded-2xl rounded-tr-md bg-brand-soft px-3.5 py-2.5 text-[13.5px] leading-relaxed whitespace-pre-wrap text-brand-ink">
         {body || <span className="text-muted">Message preview</span>}
         <div className="mt-2 flex flex-wrap gap-1.5">
-          {["Schedule", "Contact clinic", "Not now", "Stop messages"].map((a) => (
+          {Object.values(ACTION_LABEL).map((a) => (
             <span key={a} className="rounded-full border border-brand/25 bg-white/70 px-2.5 py-0.5 text-[12px] font-medium">
               {a}
             </span>

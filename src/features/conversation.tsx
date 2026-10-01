@@ -39,6 +39,7 @@ const INLINE_EVENTS = new Set<CaseEvent["type"]>([
   "follow_up_started",
   "follow_up_scheduled",
   "follow_up_held",
+  "patient_replied",
   "automation_changed",
   "appointment_booked",
   "appointment_rescheduled",

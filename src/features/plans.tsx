@@ -164,7 +164,15 @@ export function PlansList() {
                           </ToneText>
                         </td>
                         <td className="px-3 py-3 text-ink-2">
-                          {r.c.sequence.nextStepAt && r.c.status === "follow_up_active" ? formatRelative(r.c.sequence.nextStepAt, now, s.settings) : <span className="text-faint">—</span>}
+                          {r.c.sequence.nextStepAt && r.c.status === "follow_up_active" ? (
+                            new Date(r.c.sequence.nextStepAt) <= now ? (
+                              <span className="font-medium text-[#174ea6]">Due now</span>
+                            ) : (
+                              formatRelative(r.c.sequence.nextStepAt, now, s.settings)
+                            )
+                          ) : (
+                            <span className="text-faint">—</span>
+                          )}
                         </td>
                         <td className="py-3 pr-5 pl-3 text-ink-2">
                           {r.c.lastContactAt ? formatRelative(r.c.lastContactAt, now, s.settings) : <span className="text-faint">Never</span>}
