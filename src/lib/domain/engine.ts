@@ -1183,17 +1183,17 @@ export function simulateCampaignResponses(s: DemoState, id: string, now: Date) {
   const camp = s.campaigns.find((x) => x.id === id);
   if (!camp || !["running", "paused"].includes(camp.status)) throw new DomainError("Launch the campaign before simulating replies.");
   const outcome = { booked: 0, questions: 0, needsHuman: 0, deferred: 0, optedOut: 0, noReply: 0 };
-  let minute = 0;
   for (const r of camp.recipients) {
     if (r.state !== "delivered") continue;
     const c = getCase(s, r.caseId);
     const roll = hashUnit(`${c.id}:${camp.id}`);
-    const at = addMs(now, ++minute * 60_000);
+    // Replies are stamped at the current demo time; insertion order keeps each thread readable.
+    const at = now;
     if (roll < 0.4) {
       patientAction(s, c.id, "book", at);
       const offer = [...s.messages].reverse().find((m) => m.caseId === c.id && m.kind === "slot_offer");
       if (offer?.slots?.length && c.status !== "needs_human") {
-        patientSelectSlot(s, c.id, offer.slots[Math.floor(roll * 10) % offer.slots.length], addMs(at, 60_000));
+        patientSelectSlot(s, c.id, offer.slots[Math.floor(roll * 10) % offer.slots.length], at);
         outcome.booked++;
       }
     } else if (roll < 0.55) {

@@ -23,7 +23,7 @@ import {
   WarningCircle,
   X,
 } from "@phosphor-icons/react";
-import { endOfLocalDay, DAY } from "@/lib/domain/time";
+import { endOfLocalDay, DAY, localDayAt } from "@/lib/domain/time";
 import { dueFollowUps, runDueFollowUps } from "@/lib/domain/engine";
 import { formatDateTime } from "@/lib/domain/format";
 import { useNow, useStore } from "@/lib/store";
@@ -175,8 +175,10 @@ function DemoControls() {
     }
   };
 
+  /** Jump to 10:00 clinic time tomorrow, so the scheduler runs inside sending hours. */
   const advance = () => {
-    advanceClock(DAY);
+    const target = localDayAt(now, state.settings.clinic.timezone, 1, "10:00");
+    advanceClock(target.getTime() - now.getTime());
     // Run the scheduler at the new demo time.
     window.setTimeout(runScheduler, 0);
   };
@@ -208,7 +210,7 @@ function DemoControls() {
             <span className="text-muted">Demo clock </span>
             <span className="tnum font-medium">{formatDateTime(now, state.settings)}</span>
             {state.clockOffsetMs > 0 && (
-              <span className="text-muted"> (+{Math.round(state.clockOffsetMs / DAY)} day{Math.round(state.clockOffsetMs / DAY) === 1 ? "" : "s"})</span>
+              <span className="text-muted"> (advanced {(state.clockOffsetMs / DAY).toFixed(1)} days)</span>
             )}
           </div>
           <div className="mt-3 flex flex-col gap-2">
@@ -216,7 +218,7 @@ function DemoControls() {
               Run scheduler now
             </Button>
             <Button icon={<FastForward size={16} />} onClick={advance}>
-              Advance demo clock 1 day
+              Advance to tomorrow, 10:00
             </Button>
             <Button variant="ghost" icon={<ClockCounterClockwise size={16} />} onClick={() => setConfirmReset(true)}>
               Reset demo data

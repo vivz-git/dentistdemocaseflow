@@ -43,7 +43,7 @@ No environment variables, API keys or database are needed. The demo seeds itself
 
 - The amber **Demo mode** button in the top bar shows the demo clock and lets you:
   - **Run scheduler now**: sends follow-up steps that are due. In production this runs on the server every few minutes.
-  - **Advance demo clock 1 day**: moves time forward and runs the scheduler, so you can watch a sequence progress.
+  - **Advance to tomorrow, 10:00**: moves the demo clock to the next morning (clinic time) and runs the scheduler, so you can watch a sequence progress.
   - **Reset demo data**: restores the original SmileCare Dental story.
 - Every conversation has a **Simulate patient (demo)** tab. Use it to play the patient: tap quick replies, pick an offered time, or type a message. Simulated replies go through the same guardrails a real message would.
 - State is stored in your browser's `localStorage`, so each viewer has their own sandbox. There are no logins in demo mode.

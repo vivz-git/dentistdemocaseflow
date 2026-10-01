@@ -209,7 +209,7 @@ export function Settings() {
                 <Field label="Address" htmlFor="c-address" className="sm:col-span-2">
                   <Input id="c-address" value={draft.clinic.address} onChange={(e) => update((d) => void (d.clinic.address = e.target.value))} />
                 </Field>
-                <Field label="Currency" htmlFor="c-currency">
+                <Field label="Currency" htmlFor="c-currency" hint="Relabels existing estimates; it does not convert them.">
                   <Input id="c-currency" value={draft.clinic.currency} onChange={(e) => update((d) => void (d.clinic.currency = e.target.value.toUpperCase().slice(0, 3)))} />
                 </Field>
                 <Field label="Timezone" htmlFor="c-tz" error={err("clinic.timezone")}>
